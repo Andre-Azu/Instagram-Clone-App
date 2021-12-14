@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% load django_bootstrap5%}
+{% block content%}
+{%load static%}
+{% if form.errors%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .card{
+    max-width: 00px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    position: relative;
+    }
+</style>
+<link rel="stylesheet" href="{% static 'css/base.css' %}" />
+<body class="form">
+    <div class="container">
+        <div class="alert text-left">
+            <span>Use a password with both uppercase and numbers</span>
+        </div>
+        {% endif %}
+        <div class="container-fluid">
+            <h5>{{ message }}</h5>
+            <form action="{% url 'signup' %}" method="post">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                <button class="btn btn-outline-secondary" type="submit">Sign Up</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock%}

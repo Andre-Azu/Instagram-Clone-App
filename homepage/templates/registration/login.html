@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block content%}
+<div class="container">
+  <div class="row">
+    <div class="col-md-5">
+      <a class="navbar-brand" href="#" style="background-color: transparent;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWSn3WF7L-8B3D3khyH1Rs8UYq32hbGh32rQ&usqp=CAU" alt="" style="font-size: 9vh; background-color: transparent;" class="d-inline-block align-text-top">
+      </a>
+    </div>
+    <div class="col-md-7">
+<body class="card" style="color: purple;">
+  <div class="container">
+    <h3>Login in !</h3>
+  <form action="{% url 'login'%}"
+  method="POST">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label"><b><i>Username:</i></b></label>
+        <input name="username" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text"></div>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label"><b><i>Password</i></b></label>
+        <input name="password" type="password" class="form-control" id="exampleInputPassword1">
+      </div>
+      <button type="submit" class="btn btn-outline-success">LOGIN</button>
+    </form>
+  </div>
+  <div class="sign" style="padding-left: 28%; padding-top: 3%;">
+    <span class="p"><b>New here??</b></span>
+    <a href="signup/" class="ml-2" style="color:blue;">CREATE ACCOUNT</a>
+  </div>
+</body>
+{% endblock %}
+</div>
+</div>
+</div>
+(6 kB)
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWSn3WF7L-8B3D3khyH1Rs8UYq32hbGh32rQ&usqp=CAU
