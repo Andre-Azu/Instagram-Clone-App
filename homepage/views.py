@@ -18,7 +18,7 @@ def user_login(request):
         if user is not None:
             login(request,user)
             messages.success(request,f" Hello, {username} welcome to clicksgram")
-            return redirect('homepage')
+            return redirect('home')
         else:
             messages.success(request,"sorry,try login in again")
             return render(request,'registration/login.html')
@@ -37,7 +37,7 @@ def user_signup(request):
             user = authenticate(username=username, password=password)
             login(request,user)
             messages.success(request,("Your account has  succesfully been created!"))
-            return redirect('homepage')
+            return redirect('home')
     else:
         form = UserCreationForm()
     return render(request, 'registration/signup.html',{"message":message, "form":form})
@@ -46,4 +46,4 @@ def user_signup(request):
 def user_logout(request):
     logout(request)
     messages.success(request,("You have sussessfully signed out"))
-    return redirect('login')
+    return redirect('reqistration/login.html')

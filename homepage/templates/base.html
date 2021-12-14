@@ -1,6 +1,8 @@
-{% block content %}
-<!-- Navbar -->
+{% load django_bootstrap5 %}
 {% include 'navbar.html' %}
+{% block content %}
+
+<!-- Navbar -->
 {{ block.super}}
 
 {% endblock %}
