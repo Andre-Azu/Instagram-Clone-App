@@ -1,6 +1,42 @@
 {%extends 'base.html'%}
+{% load django_bootstrap5%}
+{% load bootstrap_icons %}
 
-<h2>Hello</h2>
-Welcome to Instagram
+{% block content %}
+
+{% for image in images %} 
+<div style="margin: 3rem auto; width: 40rem">
+  <div class="card" style="border: 10px solid;border-radius: 20px; border-color: rgb(236, 153, 243);">
+    <a class="mr-2" style="font-size: 40px; padding-left: 20px;" href="{% url 'profile' %}">{{ image.image_name }}</a>
+    <h5 class="card-title">
+      <img src="{{ image.image.url }}" class="rounded-circle mr-12 article-img" style="width: 600px;top: 50px;">
+      <br>
+    </h5>  
+  </p>
+    <div class="card-body">
+      <h6 class="card-subtitle mb-2 text-muted">
+      <p class="card-text">
+      <div class="row align-items-center">
+        <div class="col" style="font-size: 20px; padding-left: 20%;">          
+            {% bs_icon 'heart-fill' color='red' %}
+            {{image.likes}} like(s)
+        {% bs_icon 'chat-fill' %} comment
+        </div>
+        <div class="col">
+          <p style=" font-size: 30px;  font-family: sans-serif;" class="fa fa-comment">
+          {{image.image_caption}}
+          </p>
+        </div>
+        <div class="col">
+        <small style="opacity: 8.5; padding-left:400px " class="white-important d-flex full-width flex-row-reverse">
+          Posted on: {{ image.time_posted | date:"H:i l, d.m.y" }}
+        </small>
+        </div>
+  </div>
+</div>
+    
+</div>
+{% endfor %}
+{% endblock %}
 
 

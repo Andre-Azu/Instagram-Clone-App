@@ -1,11 +1,26 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
+
+class Userprofile(models.Model):
+    profile_picture=models.ImageField(upload_to='instagram', default = None)
+    bio = models.CharField(max_length=100)
+    username = models.CharField(max_length=15)
+    followers = models.IntegerField(default=50)
+    following = models.IntegerField(default=12)
+    
+
 class Image(models.Model):
+    user = models.ForeignKey(Userprofile, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='instagram',default=None)
     image_name = models.CharField(max_length=30)
     image_caption = models.CharField(max_length=1000)
+    comments = models.TextField()
+    likes= models.IntegerField(null=True, default=0)
+    time_posted = models.DateTimeField(auto_now_add = True)
     
+
     def save_image(self):
         self.save()
 
@@ -14,3 +29,15 @@ class Image(models.Model):
     
     def update_caption(self):
         self.update()
+
+    def count_likes(self):
+       return self.likes.count()
+
+    def update_caption(self, image_caption):
+        self.caption = image_caption
+        self.save()
+    
+# class Follows(models.Model):
+#     follower = models.ForeignKey(Userprofile, on_delete=models.CASCADE, related_name='following')
+#     followed = models.ForeignKey(Userprofile, on_delete=models.CASCADE, related_name='followers')
+

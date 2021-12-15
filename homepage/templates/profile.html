@@ -1,0 +1,35 @@
+{%extends 'base.html'%}
+{% load django_bootstrap5%}
+{% load bootstrap_icons %}
+
+{% block content %}
+{% for profile in profiles %}
+
+
+<div style="margin: 3rem auto; width: 40rem; border:5px solid ;border-radius: 20px; border-color: rgb(236, 153, 243);">
+  <div class="card">
+    <h5 class="card-title">
+        <div class="col-md-4">        
+            <i style=" font-size: 40px; color: rgb(192, 29, 184);padding-left: 250px" class="fa fa-comment">{{profile.username}}</i>
+        </div>
+      <img src="{{ profile.profile_picture.url }}" class="rounded-circle mr-12 article-img" style="width: 500px;top: 500px; border-radius:5px; padding-left: 60px;">
+      <br>
+      <a class="mr-2" style="font-size: 40px; padding-left: 20px;">Bio: {{ profile.bio }}</a>
+    </h5>
+    <div class='row'>
+        <div class= 'col-md-6' style='padding-left: 60px;'>
+            {% bs_icon 'people-fill' color='red' %}
+            Followers            
+            {{ profile.followers }}
+        </div>
+        <div class='col-md-6' style='padding-left: 60px;'>
+            {% bs_icon 'people-fill' color='red' %}
+            Following
+            {{ profile.following }}
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
+
+
