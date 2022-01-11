@@ -5,12 +5,15 @@
 {% block content %}
 
 <!-- <form action="" method="post"></form> -->
+<div style='padding: 30px;'>
+    <form action="{% url 'new_image' %}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+    
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-success btn-lg" value="Post">
+    </form>
+    
 
-<form action="{% url 'new_image' %}" method="post" enctype="multipart/form-data">
-    {%csrf_token%}
-
-    {% bootstrap_form form %}
-    <input type="submit" class="btn btn-success btn-lg" value="Post">
-</form>
+</div>
 
 {% endblock %}

@@ -4,8 +4,6 @@
 
 {% block content %}
 {% for profile in profiles %}
-
-
 <div style="margin: 3rem auto; width: 40rem; border:5px solid ;border-radius: 20px; border-color: rgb(236, 153, 243);">
   <div class="card">
     <h5 class="card-title">
@@ -27,9 +25,11 @@
             Following
             {{ profile.following }}
         </div>
+        
     </div>
 </div>
 {% endfor %}
+
 {% endblock %}
 
 

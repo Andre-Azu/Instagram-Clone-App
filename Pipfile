@@ -15,6 +15,11 @@ soupsieve = "==2.3.1"
 sqlparse = "==0.4.2"
 pillow = "*"
 django-bootstrap-icons = "*"
+whitenoise = "*"
+django-heroku = "*"
+python-decouple = "*"
+dj-database-url = "*"
+cloudinary = "*"
 
 [dev-packages]
 

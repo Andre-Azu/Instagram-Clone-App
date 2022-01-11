@@ -7,7 +7,7 @@
 {% for image in images %} 
 <div style="margin: 3rem auto; width: 40rem">
   <div class="card" style="border: 10px solid;border-radius: 20px; border-color: rgb(236, 153, 243);">
-    <a class="mr-2" style="font-size: 40px; padding-left: 20px;" href="{% url 'profile' %}">{{ image.image_name }}</a>
+    <a class="mr-2" style="font-size: 40px; padding-left: 20px;" href="{% url 'homepage' %}">{{ image.image_name }}</a>
     <h5 class="card-title">
       <img src="{{ image.image.url }}" class="rounded-circle mr-12 article-img" style="width: 600px;top: 50px;">
       <br>

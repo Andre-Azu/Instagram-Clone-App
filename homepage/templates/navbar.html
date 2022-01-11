@@ -14,6 +14,9 @@
     <nav class="navbar navbar-expand-lg fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="{%url 'homepage'%}"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWSn3WF7L-8B3D3khyH1Rs8UYq32hbGh32rQ&usqp=CAU" alt="Instagram" style='background-color: transparent;' class="d-inline-block align-text-top"></a>
+        <a href="{%url 'new_image'%}" style='position:relative; left:650px; top:2px;'>
+          {% bs_icon 'plus-square-fill' color='grey' size='2.5em' %}
+        </a>
         <a href="{%url 'homepage'%}" style='position:relative; left:700px; top:2px;'>
           {% bs_icon 'house-door-fill' color='grey' size='2.5em' %}
         </a>

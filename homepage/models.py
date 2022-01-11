@@ -1,10 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
+
 
 # Create your models here.
 
 class Userprofile(models.Model):
-    profile_picture=models.ImageField(upload_to='instagram', default = None)
+    profile_picture=CloudinaryField('image')
     bio = models.CharField(max_length=100)
     username = models.CharField(max_length=15)
     followers = models.IntegerField(default=50)
@@ -13,7 +15,7 @@ class Userprofile(models.Model):
 
 class Image(models.Model):
     user = models.ForeignKey(Userprofile, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='instagram',default=None)
+    image =CloudinaryField('image')
     image_name = models.CharField(max_length=30)
     image_caption = models.CharField(max_length=1000)
     comments = models.TextField()
